@@ -77,7 +77,7 @@ const ShinyText = ({ text, disabled = false, speed = 3, className = '' }) => {
   const animationDuration = `${speed}s`;
   return (
     <div
-      className={`relative inline-block overflow-hidden bg-clip-text text-transparent bg-gradient-to-r from-neutral-400 via-white to-neutral-400 dark:from-neutral-600 dark:via-black dark:to-neutral-600 ${disabled ? '' : 'animate-shine'} ${className}`}
+      className={`relative inline-block overflow-hidden bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 via-white to-neutral-200 dark:from-neutral-200 dark:via-white dark:to-neutral-200 ${disabled ? '' : 'animate-shine'} ${className}`}
       style={{
         backgroundSize: '200% auto',
         WebkitBackgroundClip: 'text',
@@ -270,11 +270,11 @@ const ScrollReveal = ({ text, className }) => {
   );
 };
 
-// 10. Pill Nav (Top)
+// 10. Pill Nav (Bottom)
 const PillNav = ({ items, activeId, onSelect }) => {
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center gap-2 p-2 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-purple-500/10 ring-1 ring-white/5">
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+      <div className="flex items-center gap-2 p-2 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-full shadow-2xl shadow-purple-500/20">
         {items.map((item) => (
           <button
             key={item.id}
@@ -284,7 +284,7 @@ const PillNav = ({ items, activeId, onSelect }) => {
             {activeId === item.id && (
               <motion.div
                 layoutId="pill-nav-bg"
-                className="absolute inset-0 bg-neutral-700/80 rounded-full border border-white/5"
+                className="absolute inset-0 bg-neutral-700 rounded-full"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 style={{ zIndex: -1 }}
               />
@@ -546,11 +546,14 @@ export default function App() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <ShinyText 
-              text="Full Stack Developer & UI Designer" 
-              className="text-xl md:text-2xl font-light text-neutral-400"
-              speed={4}
-            />
+            {/* Boxed Text Area (Requested Tweak) */}
+            <div className="inline-block px-6 py-2 mt-6 rounded-full bg-neutral-900/60 border border-white/10 backdrop-blur-md shadow-2xl shadow-purple-500/10">
+              <ShinyText 
+                text="Full Stack Developer & UI Designer" 
+                className="text-xl md:text-2xl font-light" 
+                speed={4}
+              />
+            </div>
           </motion.div>
 
           <motion.div 
@@ -707,7 +710,7 @@ export default function App() {
         </div>
         
         <footer className="mt-20 text-neutral-600 text-sm">
-          © 2026 Cankat. Designed with ReactBits components.
+          © 2024 Cankat. Designed with ReactBits components.
         </footer>
       </section>
 
