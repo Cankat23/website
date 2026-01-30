@@ -710,7 +710,7 @@ export default function App() {
         </div>
         
         <footer className="mt-20 text-neutral-600 text-sm">
-          © 2024 Cankat. Designed with ReactBits components.
+          © 2026 Cankat. Designed with ReactBits components.
         </footer>
       </section>
 
