@@ -270,11 +270,11 @@ const ScrollReveal = ({ text, className }) => {
   );
 };
 
-// 10. Pill Nav (Bottom)
+// 10. Pill Nav (Top)
 const PillNav = ({ items, activeId, onSelect }) => {
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center gap-2 p-2 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-full shadow-2xl shadow-purple-500/20">
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+      <div className="flex items-center gap-2 p-2 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-purple-500/10 ring-1 ring-white/5">
         {items.map((item) => (
           <button
             key={item.id}
@@ -284,7 +284,7 @@ const PillNav = ({ items, activeId, onSelect }) => {
             {activeId === item.id && (
               <motion.div
                 layoutId="pill-nav-bg"
-                className="absolute inset-0 bg-neutral-700 rounded-full"
+                className="absolute inset-0 bg-neutral-700/80 rounded-full border border-white/5"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 style={{ zIndex: -1 }}
               />
@@ -521,7 +521,8 @@ export default function App() {
 
       {/* --- HERO SECTION --- */}
       <section id="home" className="relative min-h-screen flex flex-col justify-center items-center px-6 z-10">
-        <div className="text-center space-y-6 max-w-4xl">
+        {/* Added mt-32 to push content down and separate from nav bar */}
+        <div className="text-center space-y-6 max-w-4xl mt-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
